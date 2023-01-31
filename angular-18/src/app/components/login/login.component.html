@@ -1,0 +1,45 @@
+<section class="container mt-3">
+  <article class="row d-flex flex-column">
+    <h3>Registro de Usuarios</h3>
+    <form action="" (ngSubmit)="onSubmit()">
+      <section class="form-control">
+        <label for="" class="form-label">Email: </label>
+        <input type="text"
+          class="form-control"
+          placeholder="Escribir..."
+          [(ngModel)]="datos.email" autofocus
+          [email]="true"
+          #email="ngModel"
+          required
+          name="email">
+
+        <!-- Validacion -->
+        <section *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger mt-2">
+          <section *ngIf="email.errors?.['required']">
+            El campo es requerido
+          </section>
+          <section *ngIf="email.errors?.['email']">
+            completa bien el campo de email
+          </section>
+        </section>
+
+      </section>
+
+      <section class="form-control">
+        <label for="" class="form-label">password: </label>
+        <input
+          type="password"
+            class="form-control"
+              placeholder="Escribir..."
+              [(ngModel)]="datos.password"
+              #password="ngModel"
+              name="password"
+              >
+      </section>
+
+      <section class="btn-group d-flex justify-content-center mt-3 py-3">
+        <input type="submit" value="Registrate" class="btn btn-primary w-50">
+      </section>
+    </form>
+  </article>
+</section>
